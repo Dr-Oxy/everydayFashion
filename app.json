@@ -8,7 +8,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/splash2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -31,9 +31,7 @@
       [
         "expo-font",
         {
-          "fonts": [
-            "../assets/fonts/SpaceMono-Regular.ttf"
-          ]
+          "fonts": ["./assets/fonts/SpaceMono-Regular.ttf"]
         }
       ]
     ],
