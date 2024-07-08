@@ -1,15 +1,17 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
+
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import { Item } from '@/utils/@types/context';
 
 type ItemProps = {
   item: Item;
+  onPress: () => void;
 };
 
-const ProductCard = ({ item }: ItemProps) => {
+const ProductCard = ({ item, onPress }: ItemProps) => {
   return (
-    <View style={styles.productWrapper}>
+    <TouchableOpacity onPress={onPress} style={styles.productWrapper}>
       <View style={{ position: 'relative' }}>
         <Image
           source={{
@@ -20,8 +22,9 @@ const ProductCard = ({ item }: ItemProps) => {
 
         <Text style={styles.price}>${item.current_price[0]?.USD[0]}</Text>
       </View>
+
       <Text style={styles.title}>{item.name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
     bottom: 12,
     left: 16,
     fontSize: 22,
-    fontWeight: 700,
+    fontWeight: '700',
     color: 'black',
     fontFamily: 'Space Mono',
     backgroundColor: 'orange',

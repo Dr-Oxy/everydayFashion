@@ -17,10 +17,15 @@ export interface Item {
   current_price: any;
   unit: string;
   photos: any;
-  isFave: boolean;
+  description: '';
   qty: number;
+  available_quantity: number;
 }
 
 export interface PropsWithChildren {
   children: ReactNode;
 }
+
+export type NavigationProps = {
+  [key: string]: any;
+};

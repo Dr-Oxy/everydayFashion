@@ -4,12 +4,13 @@ import { PropsWithChildren, AppContextType, Item } from './@types/context';
 
 const emptyItem: Item = {
   id: 1,
-  title: '',
-  price: '',
+  name: '',
+  current_price: '',
   unit: '',
-  img: '',
-  isFave: false,
-  qty: 1,
+  photos: '',
+  description: '',
+  qty: 0,
+  available_quantity: 0,
 };
 
 // Provide a default value for the context
@@ -40,13 +41,13 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
       setCart(
         cart.map((x) =>
           x.id === product.id
-            ? { ...itemExist, qty: (itemExist.qty || 0) + 1 }
+            ? { ...itemExist, qty: itemExist.qty + product.qty }
             : x,
         ),
       );
     } else {
       //if product doesn't exist in cart, add to cart
-      setCart([...cart, { ...product, qty: 1 }]);
+      setCart([...cart, { ...product }]);
     }
   };
 

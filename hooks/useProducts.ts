@@ -17,3 +17,15 @@ export const useGetProducts = () => {
 
   return query;
 };
+
+export const useGetProductById = (id: string | string[] | undefined) => {
+  const query = useQuery({
+    queryKey: ['products'],
+    queryFn: () =>
+      axiosRequest().get(
+        `/products/${id}?organization_id=${orgId}&Appid=${appId}&Apikey=${apiKey}`,
+      ),
+  });
+
+  return query;
+};
