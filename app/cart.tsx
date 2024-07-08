@@ -163,7 +163,7 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 30,
     color: 'white',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
     marginBottom: 20,
     textAlign: 'center',
   },

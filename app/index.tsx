@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Text,
   Pressable,
+  ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -22,7 +23,8 @@ export default function HomeScreen() {
 
   const navigation = useNavigation<NavigationProps>();
   const { setSelected } = useContext(AppContext);
-  const { data, isLoading, isError, error } = useGetProducts();
+
+  const { data, isLoading, isError, refetch } = useGetProducts();
 
   const products = useMemo(() => {
     return data?.data?.items;
@@ -41,9 +43,17 @@ export default function HomeScreen() {
 
   if (isError) {
     return (
-      <View style={styles.errorWrapper}>
-        <Text style={styles.errorText}>Error Loading data:</Text>
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#232323' }}>
+        <View style={styles.errorWrapper}>
+          <Text style={styles.errorText}>
+            Something went wrong! Reload Screen.
+          </Text>
+
+          <Pressable style={styles.reloadButton} onPress={() => refetch()}>
+            <Text> Reload</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
     );
   }
 
@@ -91,13 +101,21 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#232323',
     paddingTop: 40,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
+  },
+
+  reloadButton: {
+    backgroundColor: 'white',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 12,
   },
 
   errorText: {
-    color: 'red',
+    color: 'orange',
     fontSize: 20,
   },
 
@@ -119,7 +137,7 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 30,
     color: 'white',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
   },
 
   cartButton: {

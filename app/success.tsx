@@ -33,6 +33,7 @@ export default Success;
 const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 16,
+    paddingTop: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

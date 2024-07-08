@@ -92,41 +92,43 @@ const Details = () => {
             </Text>
           </View>
 
-          <View style={styles.qtyWrap}>
-            <Pressable
-              disabled={selected?.qty === 1}
-              onPress={() => decreaseCart(selected)}
-              style={styles.qtyButton}
-            >
-              <Text style={styles.qtyText}>-</Text>
-            </Pressable>
+          <View style={styles.bottom}>
+            <View style={styles.qtyWrap}>
+              <Pressable
+                disabled={selected?.qty === 1}
+                onPress={() => decreaseCart(selected)}
+                style={styles.qtyButton}
+              >
+                <Text style={styles.qtyText}>-</Text>
+              </Pressable>
 
-            <Pressable style={styles.qtyButton}>
-              <Text style={styles.qtyText}>{selected.qty}</Text>
-            </Pressable>
+              <Pressable style={styles.qtyButton}>
+                <Text style={styles.qtyText}>{selected.qty}</Text>
+              </Pressable>
 
-            <Pressable
-              disabled={selected?.available_quantity <= selected?.qty}
-              onPress={increaseCart}
-              style={styles.qtyButton}
-            >
-              <Text style={styles.qtyText}>+</Text>
-            </Pressable>
-          </View>
+              <Pressable
+                disabled={selected?.available_quantity <= selected?.qty}
+                onPress={increaseCart}
+                style={styles.qtyButton}
+              >
+                <Text style={styles.qtyText}>+</Text>
+              </Pressable>
+            </View>
 
-          <View style={styles.btnWrap}>
-            <Text style={styles.price}>
-              ${Number(selected?.current_price[0]?.USD[0] * selected.qty)}
-            </Text>
-
-            <Pressable
-              onPress={() => addToCart(selected)}
-              style={styles.button}
-            >
-              <Text style={styles.buttonText}>
-                {adding ? 'Adding..' : 'Add to Cart'}
+            <View style={styles.btnWrap}>
+              <Text style={styles.price}>
+                ${Number(selected?.current_price[0]?.USD[0] * selected.qty)}
               </Text>
-            </Pressable>
+
+              <Pressable
+                onPress={() => addToCart(selected)}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>
+                  {adding ? 'Adding..' : 'Add to Cart'}
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 30,
     color: 'white',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
   },
 
   title: {
@@ -182,7 +184,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 42,
     color: 'orange',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
   },
 
   desc: {
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 18,
-    marginTop: 20,
+    marginBottom: 30,
   },
 
   qtyButton: {
@@ -213,12 +215,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
+  bottom: {
+    marginTop: 'auto',
+  },
+
   btnWrap: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     gap: 18,
-    marginTop: 'auto',
   },
 
   sub: {

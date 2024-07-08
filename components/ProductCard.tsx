@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     color: 'black',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
     backgroundColor: 'orange',
     borderRadius: 16,
     paddingHorizontal: 6,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '600',
-    fontFamily: 'Space Mono',
+    fontFamily: 'Space-Mono',
     color: 'white',
     marginTop: 12,
   },
