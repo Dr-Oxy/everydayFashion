@@ -31,12 +31,22 @@
       [
         "expo-font",
         {
-          "fonts": ["../assets/fonts/SpaceMono-Regular.ttf"]
+          "fonts": [
+            "../assets/fonts/SpaceMono-Regular.ttf"
+          ]
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c11567ab-cc17-4ca7-8490-1331e6548011"
+      }
     }
   }
 }
