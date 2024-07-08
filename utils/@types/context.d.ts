@@ -13,10 +13,10 @@ export type AppContextType = {
 
 export interface Item {
   id: number;
-  title: string;
-  price: string;
+  name: string;
+  current_price: any;
   unit: string;
-  img: string;
+  photos: any;
   isFave: boolean;
   qty: number;
 }

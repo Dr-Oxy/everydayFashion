@@ -1,127 +1,122 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { useMemo } from 'react';
+import { StyleSheet, FlatList, View, SafeAreaView, Text } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ProductLoader, TwoColumn, ProductCard } from '@/components';
 
 import { useGetProducts } from '@/hooks/useProducts';
 
+import { Item } from '@/utils/@types/context';
+
 export default function HomeScreen() {
-  //get products from timbucloud
-  const { data, isLoading } = useGetProducts();
+  const { data, isLoading, isError, error } = useGetProducts();
+
+  const products = useMemo(() => {
+    return data?.data?.items;
+  }, [data?.data?.items]);
+
+  const renderItem = ({ item }: { item: Item }) => {
+    return <ProductCard item={item} />;
+  };
+
+  if (isError) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 20,
+          }}
+        >
+          {' '}
+          Error Loading data:{' '}
+        </Text>
+      </View>
+    );
+  }
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#131212', dark: '#131212' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/logoLarge.png')}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this
-          starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+    <SafeAreaView style={styles.wrapper}>
+      <View style={{ flex: 1 }}>
+        <View style={styles.header}>
+          <Text style={styles.leading}>Everyday Fashion</Text>
+        </View>
 
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        {isLoading ? (
+          <TwoColumn>
+            {Array(8)
+              .fill('')
+              .map((_, i) => (
+                <ProductLoader key={i} />
+              ))}
+          </TwoColumn>
+        ) : (
+          <View style={styles.productContainer}>
+            <FlatList
+              numColumns={2}
+              data={products}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id.toString()}
+              // extraData={selected}
+            />
+          </View>
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+export const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#232323',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  header: {
+    paddingTop: 40,
+    paddingHorizontal: 16,
   },
-  reactLogo: {
-    height: 178,
-    width: '100%',
-    // bottom: 0,
-    // left: 0,
-    // position: 'absolute',
+
+  leading: {
+    fontSize: 24,
+    fontWeight: '700',
+    lineHeight: 30,
+    color: 'white',
+    fontFamily: 'Space Mono',
+  },
+
+  sub: {
+    marginTop: 10,
+    fontSize: 20,
+    color: 'white',
+  },
+
+  productContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
+    paddingTop: 20,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    gap: 8,
+    backgroundColor: '#232323',
+  },
+
+  button: {
+    alignSelf: 'flex-start',
+    padding: 10,
+    backgroundColor: '#F3E3BF',
+    borderRadius: 8,
+    marginLeft: 'auto',
+  },
+  buttonText: {
+    fontWeight: '600',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
