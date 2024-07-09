@@ -21,13 +21,13 @@ This is a elegant shopping mobile application built using React Native (Expo), t
 
 ## Screenshots.
 
-![Home page](assets/screenshots/Menu.png)
+![Splash screen](assets/images/0.png)
 
-![Add to cart](assets/screenshots/Add-to-Cart.png)
+![Products Screen](assets/images/1.png)
 
-![cart](assets/screenshots/Cart.png)
+![Product Details](assets/images/2.png)
 
-![successful order](assets/screenshots/Success.png)
+![Checkout](assets/images/3.png)
 
 ## Installations
 
@@ -62,9 +62,7 @@ To get started with this repository, follow these steps:
 
 Download the latest app version of the app using the link below:
 
-- [Download APK](https://expo.dev/artifacts/eas/5MWWDPYpcS1DxBhqjKYjyt.apk):
-
-- [Appetize.ioLink](https://appetize.io/app/hfscuqin5gnbsqsokbsjpotrcu?device=pixel7&osVersion=13.0)
+- [Download APK](https://expo.dev/artifacts/eas/5MWWDPYpcS1DxBhqjKYjyt.apk)
 
 ## Contributing
 
