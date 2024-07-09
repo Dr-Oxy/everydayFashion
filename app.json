@@ -9,8 +9,8 @@
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash2.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "black"
     },
     "ios": {
       "supportsTablet": true
@@ -32,9 +32,7 @@
       [
         "expo-font",
         {
-          "fonts": [
-            "./assets/fonts/SpaceMono-Regular.ttf"
-          ]
+          "fonts": ["./assets/fonts/SpaceMono-Regular.ttf"]
         }
       ]
     ],

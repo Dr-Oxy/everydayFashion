@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
 
   price: {
-    fontSize: 36,
+    fontSize: 32,
     color: 'orange',
   },
 
