@@ -116,9 +116,11 @@ const Details = () => {
             </View>
 
             <View style={styles.btnWrap}>
-              <Text style={styles.price}>
-                ${Number(selected?.current_price[0]?.USD[0] * selected.qty)}
-              </Text>
+              <View style={styles.priceWrap}>
+                <Text style={styles.price}>
+                  ${Number(selected?.current_price[0]?.USD[0] * selected.qty)}
+                </Text>
+              </View>
 
               <Pressable
                 onPress={() => addToCart(selected)}
@@ -194,11 +196,15 @@ const styles = StyleSheet.create({
     color: '#f3f3f3',
   },
 
+  bottom: {
+    marginTop: 40,
+  },
+
   qtyWrap: {
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 18,
-    marginBottom: 30,
+    marginBottom: 50,
   },
 
   qtyButton: {
@@ -215,10 +221,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
-  bottom: {
-    marginTop: 'auto',
-  },
-
   btnWrap: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -231,10 +233,17 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  price: {
-    fontSize: 32,
-    color: 'orange',
+  priceWrap: {
     width: 100,
+    alignSelf: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  price: {
+    fontSize: 36,
+    color: 'orange',
   },
 
   button: {
