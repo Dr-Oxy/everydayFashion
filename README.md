@@ -62,7 +62,7 @@ To get started with this repository, follow these steps:
 
 Download the latest app version of the app using the link below:
 
-- [Download APK](https://expo.dev/artifacts/eas/5MWWDPYpcS1DxBhqjKYjyt.apk)
+- [Download APK](https://expo.dev/artifacts/eas/akbivsSUFPWrpRTD5UE7aj.apk)
 
 ## Contributing
 
