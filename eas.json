@@ -13,13 +13,6 @@
     "production": {
       "android": {
         "buildType": "apk"
-      },
-
-      "env": {
-        "EXPO_PUBLIC_API_KEY": "1eb9022f91f84597a6b313f4c0ee973120240705132318538704",
-        "EXPO_PUBLIC_API_URL": "https://api.timbu.cloud",
-        "EXPO_PUBLIC_ORGID": "413a40b78edc4031b496b9ec0c354c2d",
-        "EXPO_PUBLIC_APPID": "MQU42WJ1O63SZF5"
       }
     }
   },
