@@ -160,7 +160,7 @@ export const styles = StyleSheet.create({
   leading: {
     paddingHorizontal: 20,
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '600',
     lineHeight: 30,
     color: 'white',
     fontFamily: 'Space-Mono',
@@ -219,6 +219,7 @@ export const styles = StyleSheet.create({
 
   menuTitle: {
     fontSize: 20,
+    fontFamily: 'Space-Mono',
     fontWeight: '600',
     lineHeight: 30,
     color: 'white',
@@ -227,7 +228,8 @@ export const styles = StyleSheet.create({
   menuPrice: {
     color: 'orange',
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: 'Space-Mono',
+    fontWeight: '600',
   },
 
   button: {
@@ -238,10 +240,11 @@ export const styles = StyleSheet.create({
   },
 
   buttonText: {
+    fontFamily: 'Space-Mono',
     fontWeight: '600',
     fontSize: 20,
     textAlign: 'center',
-    color: 'rgb(68, 2, 2)',
+    color: 'black',
   },
 
   delButton: {
@@ -263,7 +266,8 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 40,
     color: 'black',
-    fontWeight: '700',
+    fontFamily: 'Soace-Mono',
+    fontWeight: '600',
   },
 
   totalButton: {

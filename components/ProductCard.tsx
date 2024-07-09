@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     bottom: 12,
     left: 16,
     fontSize: 22,
-    fontWeight: '700',
+    fontWeight: '600',
     color: 'black',
     fontFamily: 'Space-Mono',
     backgroundColor: 'orange',

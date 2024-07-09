@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 
   leading: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '600',
     lineHeight: 30,
     color: 'white',
     fontFamily: 'Space-Mono',
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 30,
-    fontWeight: '700',
+    fontWeight: '600',
     lineHeight: 42,
     color: 'orange',
     fontFamily: 'Space-Mono',
@@ -258,9 +258,10 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontWeight: '600',
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
+    fontWeight: '600',
+    fontFamily: 'Space-Mono',
   },
 });

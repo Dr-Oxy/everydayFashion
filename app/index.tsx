@@ -7,7 +7,6 @@ import {
   SafeAreaView,
   Text,
   Pressable,
-  ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -130,11 +129,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    fontFamily: 'Space-Mono',
   },
 
   leading: {
     fontSize: 20,
-    fontWeight: '700',
+    fontWeight: '600',
     lineHeight: 30,
     color: 'white',
     fontFamily: 'Space-Mono',
