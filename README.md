@@ -42,7 +42,7 @@ To get started with this repository, follow these steps:
 2. **Navigate to the project directory:**
 
    ```
-   cd coffeeApp
+   cd everydayFashion
    ```
 
 3. **Set up development environment**
