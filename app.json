@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.misschievous.everydayFashion"
     },
     "web": {
       "bundler": "metro",
@@ -31,7 +32,9 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/SpaceMono-Regular.ttf"]
+          "fonts": [
+            "./assets/fonts/SpaceMono-Regular.ttf"
+          ]
         }
       ]
     ],

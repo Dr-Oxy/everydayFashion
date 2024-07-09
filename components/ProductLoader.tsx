@@ -1,7 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { useState, useEffect, useRef } from 'react';
-
-import { ThemedView } from './ThemedView';
+import { useEffect } from 'react';
 
 import Animated, {
   useSharedValue,
@@ -36,9 +34,9 @@ const ProductLoader = () => {
   }));
 
   return (
-    <ThemedView style={styles.loadView}>
+    <View style={styles.loadView}>
       <Animated.View style={[styles.loadImg, animatedStyle]}></Animated.View>
-    </ThemedView>
+    </View>
   );
 };
 
